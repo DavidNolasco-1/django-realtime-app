@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Lista de Productos</title>
+</head>
+<body>
+    <h1>Lista de Productos</h1>
+    
+    <p>Estado: {{ mensaje }}</p>
+
+    <ul>
+        {% for producto in items %}
+            <li>
+                **{{ producto.nombre }}** | Precio: ${{ producto.price }} | Cantidad: {{ producto.cantidad }}
+                {% if producto.description %}
+                    <br><small>Descripción: {{ producto.description }}</small>
+                {% endif %}
+            </li>
+        {% empty %}
+            <li>No hay productos registrados.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
